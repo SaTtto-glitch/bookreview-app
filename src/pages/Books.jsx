@@ -47,7 +47,6 @@ export const Books = () => {
         history("/");
       })
       .catch((err) => {
-        console.log(data.url);
         setErrorMessage(`更新に失敗しました。 ${err}`);
       });
   };
@@ -93,7 +92,6 @@ export const Books = () => {
   }, []);
 
   const auth = useSelector((state) => state.auth.isSignIn);
-  console.log(cookies.token);
 
   return (
     <div>

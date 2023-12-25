@@ -32,10 +32,8 @@ export const Header = () => {
       .then((res) => {
         setName(res.data.name);
         setIconURL(res.data.iconUrl);
-        console.log(res.data.iconUrl);
       })
       .catch((err) => {
-        console.log(err);
       });
   }, []);
 
@@ -64,21 +62,21 @@ export const Header = () => {
     <header className="header">
       <div className="gnavi">
         {auth ? (
-          <a>
+          <>
             <div className="gnavi__inner">
               <div className="personal-account__data">
                 <a href="#">
-                  <span class="personal-account__data__avatar">
+                  <span className="personal-account__data__avatar">
                     <img src={iconURL} width="30" height="30" />
                   </span>
-                  <span class="personal-account__data__name">{name}</span>
-                  <span class="personal-account__data__sub-text">さんのマイページ</span>
+                  <span className="personal-account__data__name">{name}</span>
+                  <span className="personal-account__data__sub-text">さんのマイページ</span>
                 </a>
               </div>
 
               <div className="has-sub">
                 メニュー
-                <ul class="sub">
+                <ul className="sub">
                   <li>
                     <Link to={`/edituser`}>アカウント設定</Link>
                   </li>
@@ -90,7 +88,7 @@ export const Header = () => {
                 </ul>
               </div>
             </div>
-          </a>
+          </>
         ) : (
           <>
             <Link to={`/signin`} className="btn btn-primary">
@@ -102,10 +100,10 @@ export const Header = () => {
           <div className="logo">
             <img src={Logo} width="200px" />
           </div>
-          <div class="container">
-  <input type="search" name="search" placeholder="検索" />
-  <input type="submit" name="submit" value="検索" />
-</div>
+          <div className="container">
+            <input type="search" name="search" placeholder="検索" />
+            <input type="submit" name="submit" value="検索" />
+          </div>
         </div>
       </div>
     </header>

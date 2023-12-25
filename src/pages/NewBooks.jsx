@@ -33,7 +33,6 @@ export const NewBooks = (props) => {
         },
       })
       .then((res) => {
-        console.log(res);
         history("/");
         props.setShowModal(false);
         window.location.reload()
@@ -67,40 +66,40 @@ export const NewBooks = (props) => {
   const closeModal = () => {
     props.setShowModal(false);
   };
-  
+
   return (
     <div>
       {props.showFlag ? (
-      <main className="new-task"  id="overlay" style={overlay}>
-        <div id="modalContent" style={modalContent}>
-        <p className="error-message">{errorMessage}</p>
-        <form className="new-task-form">
-          <h3>感想・レビューを投稿する</h3>
-          <label>書籍タイトル</label>
-          <br />
-          <input type="text" onChange={handleTitleChange} className="new-task-title" />
-          <br />
-          <label>詳細</label>
-          <br />
-          <textarea type="text" onChange={handleDetailChange} className="new-task-detail" />
-          <br />
+        <main className="new-task" id="overlay" style={overlay}>
+          <div id="modalContent" style={modalContent}>
+            <p className="error-message">{errorMessage}</p>
+            <form className="new-task-form">
+              <h3>感想・レビューを投稿する</h3>
+              <label>書籍タイトル</label>
+              <br />
+              <input type="text" onChange={handleTitleChange} className="new-task-title" />
+              <br />
+              <label>詳細</label>
+              <br />
+              <textarea type="text" onChange={handleDetailChange} className="new-task-detail" />
+              <br />
 
-          <label>URL</label>
-          <br />
-          <textarea type="text" onChange={handleURLChange} className="new-task-detail" />
-          <br />
+              <label>URL</label>
+              <br />
+              <textarea type="text" onChange={handleURLChange} className="new-task-detail" />
+              <br />
 
-          <label>感想・レビュー</label>
-          <br />
-          <textarea type="text" onChange={handleReviewChange} className="new-task-detail" />
-          <br />
+              <label>感想・レビュー</label>
+              <br />
+              <textarea type="text" onChange={handleReviewChange} className="new-task-detail" />
+              <br />
 
-          <button type="button" className="new-task-button" onClick={onCreateTask}>
-            登録する
-          </button>
-        </form>
-        <button onClick={closeModal}>×</button></div>
-      </main>) : (
+              <button type="button" className="new-task-button" onClick={onCreateTask}>
+                登録する
+              </button>
+            </form>
+            <button onClick={closeModal}>×</button></div>
+        </main>) : (
         <></>// showFlagがfalseの場合はModalは表示しない
       )}
     </div>

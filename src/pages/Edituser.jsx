@@ -4,7 +4,7 @@ import { useCookies } from "react-cookie";
 import { url } from "../const";
 import { Header } from "../components/Header";
 import "./Home.css";
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 //ダブルクォーテーションは文字列型になる　空白はnull　別物 {}  []
 export const Edituser = () => {
@@ -29,7 +29,6 @@ export const Edituser = () => {
         },
       })
       .then((res) => {
-        console.log(res.data);
         navigate("/");
       })
       .catch((err) => {
@@ -47,13 +46,12 @@ export const Edituser = () => {
       .then((res) => {
         setName(res.data.name);
         seticonUrl(res.data.iconUrl);
-        console.log(res);
       })
       .catch((err) => {
         setErrorMessage(`ユーザー情報の取得に失敗しました。${err}`);
       });
   }, []);
-  
+
   return (
     <div>
       <Header />
@@ -61,7 +59,7 @@ export const Edituser = () => {
         <div className="Block__title">
           <p>ユーザー情報を編集する</p>
         </div>
-        
+
         <p className="error-message">{errorMessage}</p>
         <div className="Block__element">
           <label>ニックネーム</label>

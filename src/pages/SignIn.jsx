@@ -45,7 +45,7 @@ export const SignIn = () => {
         <h2 className="h3 mb-3 fw-normal">サインイン</h2>
         <p className="error-message">{errorMessage}</p>
         <form>
-          <div class="form-floating">
+          <div className="form-floating">
             <input
               type="email"
               className="form-control"
@@ -66,12 +66,12 @@ export const SignIn = () => {
           <br />
           <ErrorMessage errors={errors} name="email" />
           <br />
-          <div class="form-floating">
-          <input type="password" className="form-control" onChange={handlePasswordChange} name={cookies.name} />
-          <label for="floatingPassword">Password</label>
+          <div className="form-floating">
+            <input type="password" className="form-control" onChange={handlePasswordChange} name={cookies.name} />
+            <label for="floatingPassword">Password</label>
           </div>
           <br />
-          <button type="button" class="w-100 btn btn-lg btn-primary" onClick={onSignIn}>
+          <button type="button" className="w-100 btn btn-lg btn-primary" onClick={onSignIn}>
             サインイン
           </button>
         </form>

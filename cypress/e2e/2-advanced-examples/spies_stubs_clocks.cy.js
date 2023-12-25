@@ -8,7 +8,7 @@ context('Spies, Stubs, and Clock', () => {
     cy.visit('https://example.cypress.io/commands/spies-stubs-clocks')
 
     const obj = {
-      foo () {},
+      foo() { },
     }
 
     const spy = cy.spy(obj, 'foo').as('anyArgs')
@@ -26,8 +26,7 @@ context('Spies, Stubs, and Clock', () => {
        * Prints the argument passed
        * @param x {any}
       */
-      foo (x) {
-        console.log('obj.foo called with', x)
+      foo(x) {
       },
     }
 
@@ -54,8 +53,7 @@ context('Spies, Stubs, and Clock', () => {
        * @param a {string}
        * @param b {string}
       */
-      foo (a, b) {
-        console.log('a', a, 'b', b)
+      foo(a, b) {
       },
     }
 
@@ -104,7 +102,7 @@ context('Spies, Stubs, and Clock', () => {
        * Greets a person
        * @param {string} name
       */
-      greet (name) {
+      greet(name) {
         return `Hello, ${name}!`
       },
     }
@@ -131,7 +129,7 @@ context('Spies, Stubs, and Clock', () => {
        * @param a {number}
        * @param b {number}
       */
-      add (a, b) {
+      add(a, b) {
         return a + b
       },
     }

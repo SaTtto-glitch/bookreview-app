@@ -10,7 +10,7 @@ import { useSelector, useDispatch } from "react-redux/es/exports";
 import { useNavigate } from "react-router-dom";
 import { signOut } from "../authSlice";
 
-import {NewBooks} from "./NewBooks"
+import { NewBooks } from "./NewBooks"
 
 //データ表示用コンポーネント
 export const Home = () => {
@@ -29,7 +29,6 @@ export const Home = () => {
       })
       .then((res) => {
         setLists(res.data);
-        console.log(res.json);
       })
       .catch(() => {
         axios
@@ -50,7 +49,6 @@ export const Home = () => {
 
   const curtIndex = selectPage;
 
-  console.log(curtIndex);
 
   const handlePageClick = (page) => {
     setSelectPage(page.selected * 10, "selectPage");
@@ -78,10 +76,8 @@ export const Home = () => {
       )
       .then((res) => {
         setSelectBookId(res);
-        console.log(res);
       })
       .catch((err) => {
-        console.log(err);
       });
   };
 
@@ -119,10 +115,8 @@ export const Home = () => {
       .then((res) => {
         setName(res.data.name);
         setIconURL(res.data.iconUrl);
-        console.log(res.data.iconUrl);
       })
       .catch((err) => {
-        console.log(err);
       });
   }, []);
 
@@ -137,7 +131,7 @@ export const Home = () => {
       <Header />
 
       <div className="Block">
-      
+
         <div className="Block__side">
           <div className="user-profiles">
             <div className="user-profiles__avatar">

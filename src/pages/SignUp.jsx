@@ -6,7 +6,6 @@ import { useCookies } from "react-cookie";
 import { useSelector, useDispatch } from "react-redux";
 import { signIn } from "../authSlice";
 import { url } from "../const";
-// SubmitHandlerは、submitイベントに関する関数の型宣言に使う
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import Compressor from "compressorjs";
@@ -37,7 +36,7 @@ export const SignUp = () => {
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handleNameChange = (e) => setName(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
-  
+
   //画像アップロード
   const handleChangeFile = (e) => {
     new Compressor(e.target.files[0], {
@@ -51,7 +50,6 @@ export const SignUp = () => {
 
       mimeType: "image/png",
       error(err) {
-        console.log(err);
       },
     });
   };
@@ -82,10 +80,8 @@ export const SignUp = () => {
           })
 
           .then((res) => {
-            console.log(res);
           })
           .catch((err) => {
-            console.log(res.data.token);
             setErrorMessge(`画像のアップロードに失敗しました。 ${err}`);
           });
 
@@ -94,32 +90,12 @@ export const SignUp = () => {
       })
 
       .catch((err) => {
-        console.log(err);
         setErrorMessge(`サインアップに失敗しました。 ${err}`);
       });
 
     if (auth) return <Route exact path="/" element={<Navigate to="/" />} />;
   };
 
-  /*
-  const onSignUp2 = () => {
-    const formData = new FormData();
-    formData.append("icon", icon, icon.name);
-
-    axios
-      .post(`${url}/uploads`, formData, {
-        headers: {
-          Authorization: `Bearer ${cookies.token}`,
-        },
-      })
-
-      .then((res) => {})
-      .catch((err) => {
-        console.log(err);
-        setErrorMessge(`画像のアップロードに失敗しました。 ${err}`);
-      });
-  };
-*/
   return (
     <div>
       <main className="signup">
