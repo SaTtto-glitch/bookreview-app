@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, createRef } from "react";
+import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { useSelector, useDispatch } from "react-redux/es/exports";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +15,7 @@ export const Header = () => {
   const auth = useSelector((state) => state.auth.isSignIn);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [cookies, setCookies, removeCookie] = useCookies();
+  const [cookies, removeCookie] = useCookies();
   const handleSignOut = () => {
     dispatch(signOut());
     removeCookie("token");
